@@ -1,7 +1,8 @@
 // ライブラリのインポートと辞書の読み込み
 import kuromoji from "kuromoji";
 import axios from "axios"
-import cheerio from "cheerio-httpcli"
+
+const apiKey = process.env.NEWSAPI_API_KEY
 
 const builder = kuromoji.builder({
   dicPath: 'node_modules/kuromoji/dict/'
@@ -59,7 +60,7 @@ const returnNounArray = async (sentence:string):Promise<T>=>{
 }
 
 const fetchNews = async()=>{
-  const data:{data:ArticleResponse} = await axios.get('https://newsapi.org/v2/everything?q=bitcoin&apiKey=64eae1a0688d48fbbfb89d6c9fc026b1&language=en')
+  const data:{data:ArticleResponse} = await axios.get(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}&language=en`)
   const descriptionArray = data.data.articles.map((article)=>{
     return article.description
   })
@@ -67,13 +68,6 @@ const fetchNews = async()=>{
     // const aa = await returnNounArray(description)
     console.log(description)
   })
-}
-
-const fetchYahooMainNews = async() => {
-  cheerio.fetch("https://news.yahoo.co.jp/topics",(err, $, res, body)=>{
-    console.log($("topicsListRequest"))
-  })
-  // console.log(data.data)
 }
 
 const main = async()=>{
