@@ -1,1 +1,5 @@
 node_modules
+.secrets
+.env
+yarn-error.log
+yarn.lock
