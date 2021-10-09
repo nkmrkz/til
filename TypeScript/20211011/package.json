@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.36.0",
+    "@types/kuromoji": "^0.1.1",
+    "aws-sdk": "^2.1004.0",
+    "axios": "^0.22.0",
+    "cheerio-httpcli": "^0.8.2",
+    "dotenv": "^10.0.0",
+    "kuromoji": "^0.1.2",
+    "util": "^0.12.4"
+  },
+  "name": "20211011",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.10.3"
+  }
+}
